@@ -1,0 +1,29 @@
+!!! 5
+%html
+  %body
+    .side
+      .side__nav
+        .side__nav--username
+          current_user
+        .side__nav--button
+          = link_to "/" do
+            %i.fa.fa-edit
+          = link_to "/" do
+            %i.fa.fa-cog
+      .side__body
+        = render partial: 'messages/side'
+    .main
+      .main__nav
+        .main__nav--groupname
+          serect-groupname
+        = link_to "EDIT", "/", class: 'main__nav--edit'
+        .main__nav--username
+          groupnames
+      .main__body
+        = render partial: 'messages/main'
+      .main__form
+        %input{type: 'text', placeholder: 'type a message', class: 'main__form--comment'}
+        %label.upload-label{for: "upload-icon"}
+          %i.fa.fa-picture-o
+          %input{type: "file", id: "upload-icon" }
+        = link_to "Send", "/", class: 'main__form--icon'
