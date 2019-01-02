@@ -4,11 +4,11 @@
     .side
       .side__nav
         .side__nav--username
-          current_user
+          = current_user.name
         .side__nav--button
           = link_to "/" do
             %i.fa.fa-edit
-          = link_to "/" do
+          = link_to edit_user_path(current_user) do
             %i.fa.fa-cog
       .side__body
         = render partial: 'messages/side'
