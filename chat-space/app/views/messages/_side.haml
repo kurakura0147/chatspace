@@ -1,5 +1,17 @@
-.sidecard
-  .side__body--groupname
-    sampleグループ
-  .side__body--comment
-    まだコメントはありません。
+.side
+  .side__nav
+    .side__nav--username
+      = current_user.name
+    .side__nav--button
+      = link_to new_group_path do
+        %i.fa.fa-edit
+      = link_to edit_user_path(current_user) do
+        %i.fa.fa-cog
+  .side__body
+    .sidecard
+      - current_user.groups.each do |group|
+        = link_to group_messages_path(group) do
+          .side__body--groupname
+            = group.name
+          .side__body--comment
+            メッセージはまだありません。
