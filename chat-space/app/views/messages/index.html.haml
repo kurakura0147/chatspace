@@ -10,10 +10,11 @@
         .main__nav--username
           groupnames
       .main__body
-        = render partial: 'messages/main'
+        = render @messages
       .main__form
-        %input{type: 'text', placeholder: 'type a message', class: 'main__form--comment'}
-        %label.upload-label{for: "upload-icon"}
-          %i.fa.fa-picture-o
-          %input{type: "file", id: "upload-icon" }
-        = link_to "Send", "/", class: 'main__form--icon'
+        =form_for [@group, @message] do |f|
+          %input{type: 'text', placeholder: 'type a message', class: 'main__form--comment'}
+          %label.upload-label{for: "upload-icon"}
+            %i.fa.fa-picture-o
+            %input{type: "file", id: "upload-icon" }
+          = link_to "Send", "/", class: 'main__form--icon'
