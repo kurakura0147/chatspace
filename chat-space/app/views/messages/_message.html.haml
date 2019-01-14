@@ -1,11 +1,11 @@
 .maincard
   .main__body--username
-    = messages.user.name
+    = message.user.name
   .main__body--commenttime
-    = message.created_at.strftime(“%Y/%m/%d %H:%M”)
+    = message.created_at.strftime('%Y/%m/%d %H:%M')
   .main__body--comment
-    - if message.content.present?
+    - if message.body.present?
       %p.lower-message__content
-        = message.content
+        = message.body
     = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
 
