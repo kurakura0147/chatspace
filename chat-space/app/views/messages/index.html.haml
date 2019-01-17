@@ -1,20 +1,17 @@
-!!! 5
-%html
-  %body
-    = render partial: 'messages/side'
-    .main
-      .main__nav
-        .main__nav--groupname
-          = @group.name
-        = link_to "EDIT", "/", class: 'main__nav--edit'
-        .main__nav--username
-          = @group.group_users.name
-      .main__body
-        = render @messages
-      .main__form
-        =form_for [@group, @message] do |f|
-          = f.text_field :body, type: 'text', placeholder: 'type a message', class: 'main__form--comment'
-          = f.label :image , class: "form__masl__image" do
-            = fa_icon "picture-o" , class: 'icon'
-            = f.file_field :image , class: 'hidden'
-          = f.submit "Send", class: 'main__form--icon'
+= render partial: 'messages/side'
+.main
+  .main__nav
+    .main__nav--groupname
+      = @group.name
+    = link_to "EDIT"  , "edit" , class: 'main__nav--edit'
+    .main__nav--username
+      = @group.group_users.name
+  .main__body
+    = render @messages
+  .main__form
+    =form_for [@group, @message] do |f|
+      = f.text_field :body, type: 'text', placeholder: 'type a message', class: 'main__form--comment'
+      = f.label :image , class: "form__masl__image" do
+        = fa_icon "picture-o" , class: 'icon'
+        = f.file_field :image , class: 'image'
+      = f.submit "Send", class: 'main__form--icon'

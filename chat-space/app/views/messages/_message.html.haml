@@ -7,5 +7,6 @@
     - if message.body.present?
       %p.lower-message__content
         = message.body
-    = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
+      %p.lower-message__content
+        = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
 
