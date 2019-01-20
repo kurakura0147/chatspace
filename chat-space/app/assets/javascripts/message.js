@@ -54,13 +54,14 @@ $(document).on('turbolinks:load', function(){
           dataType: 'json'
         })
 
-        .done(function(data){
-          data.forEach(function(messages){
-          $('.maincard').append(buildHTML(message));
+          .done(function(data){
+            data.forEach(function(messages){
+            $('.maincard').append(buildHTML(message));
           })
           $('.main__body').animate({scrollTop: $('.main__body')[0].scrollHeight}, 'fast');
         })
         .fail(function(data){
+          console.log("検索失敗です");
         })
     } else {
       clearInterval(interval);
